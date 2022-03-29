@@ -43,8 +43,17 @@ public class MainActivity extends AppCompatActivity {
         chkColor_B.setOnClickListener(setColor_listener);
     }
     View.OnClickListener rdoScreen_listener = new View.OnClickListener() {
+
+
         @Override
         public void onClick(View view) {
+            rdoScreenSet.setChecked(false);
+            rdoScreenReset.setChecked(false);
+            objLayout = (ConstraintLayout) findViewById(R.id.constraintLayout1);
+
+            RadioButton radioButton = (RadioButton) view;
+            radioButton.setChecked(true);
+
             if(rdoScreenSet.isChecked()){
                 strData = "Color Setting Mode :" + rdoScreenSet.getText().toString();
             }else{
@@ -54,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 chkColor_B.setChecked(false);
                 objTV.setBackgroundColor(0xFFFFFFFF);
                 objTV.setTextColor(0xFF000000);
+                objLayout.setBackgroundColor(0xFFFFFFFF);
+
 
             }
             objTV.setText(strData);
